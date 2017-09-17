@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'areas.apps.AreasConfig',
-    'basestaions.apps.BasestaionsConfig',
+    'basestations.apps.BasestationsConfig',
     'broadcastingstatus.apps.BroadcastingstatusConfig',
     'broadcasts.apps.BroadcastsConfig',
     'contracts.apps.ContractsConfig',
