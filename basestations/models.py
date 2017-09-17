@@ -18,3 +18,6 @@ class Basestation(models.Model):
 
     television = models.ForeignKey(Television, on_delete=models.CASCADE)
     area = models.ForeignKey(Area, null=True, blank=True)
+
+    class Meta:
+        db_table = "base_stations"

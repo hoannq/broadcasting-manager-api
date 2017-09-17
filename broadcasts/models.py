@@ -21,3 +21,6 @@ class Broadcast(models.Model):
     is_by_region = models.BooleanField(default=False, blank=False, null=False)
 
     base_station = models.ForeignKey(Basestation, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "broadcasts"

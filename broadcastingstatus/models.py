@@ -10,3 +10,6 @@ class Broadcastingstatus(models.Model):
     status = models.CharField(max_length=50, blank=True, null=True)
 
     broadcast = models.ForeignKey(Broadcast, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "broadcasting_status"

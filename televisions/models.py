@@ -15,3 +15,6 @@ class Television(models.Model):
     decision_number = models.CharField(max_length=20, blank=False, null=False)
     decision_date = models.DateField()
     description = models.TextField(blank=True, null=True)
+
+    class Meta:
+        db_table = "televisions"

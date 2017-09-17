@@ -14,3 +14,6 @@ LOCATIONS = [
 class Machinelocation(models.Model):
     name = models.CharField(max_length=100, choices=LOCATIONS)
     owner = models.CharField(max_length=100, choices=TELEVISIONS)
+
+    class Meta:
+        db_table = "machine_locations"

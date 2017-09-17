@@ -15,3 +15,6 @@ class Timerange(models.Model):
     end_time = models.TimeField(blank=False, null=False)
 
     broadcasting_status = models.ForeignKey(Broadcastingstatus, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "time_ranges"

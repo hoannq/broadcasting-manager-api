@@ -14,3 +14,6 @@ AREAS = (
 
 class Area(models.Model):
     name = models.CharField(max_length=50, choices=AREAS)
+
+    class Meta:
+        db_table = "areas"

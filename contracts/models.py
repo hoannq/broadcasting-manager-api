@@ -15,3 +15,6 @@ class Contract(models.Model):
 
     broadcast = models.OneToOneField(Broadcast, on_delete=models.CASCADE)
     unit_price = models.ForeignKey(Unitprice, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "contracts"

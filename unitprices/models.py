@@ -15,3 +15,6 @@ class Unitprice(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=0, blank=False, null=False)
 
     machine_location = models.OneToOneField(Machinelocation, blank=True, null=True)
+
+    class Meta:
+        db_table = "unit_prices"
