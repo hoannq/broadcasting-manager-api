@@ -1,4 +1,5 @@
 from django.db import models
+
 from machinelocations.models import Machinelocation
 
 # Create your models here.
@@ -6,7 +7,8 @@ BROADCASTING_HOURS = (
     ('19', '19'), ('24', '24')
 )
 POWER_TYPES = (('10', '10'), ('5', '5'), ('2', '2'))
-RENEW = ( (1, 'Thứ nhất'), (0, 'Thứ hai') )
+RENEW = ((1, 'Thứ nhất'), (0, 'Thứ hai'))
+
 
 class Unitprice(models.Model):
     broadcasting_hours = models.CharField(max_length=2, choices=BROADCASTING_HOURS, default=BROADCASTING_HOURS[1][1])
@@ -15,6 +17,7 @@ class Unitprice(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=0, blank=False, null=False)
 
     machine_location = models.OneToOneField(Machinelocation, blank=True, null=True)
+    is_delete = models.BigIntegerField(default=0)
 
     class Meta:
         db_table = "unit_prices"

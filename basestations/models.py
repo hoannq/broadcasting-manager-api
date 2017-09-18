@@ -1,12 +1,14 @@
 from django.db import models
-from televisions.models import Television
+
 from areas.models import Area
+from televisions.models import Television
 
 # Create your models here.
 MANAGE_TYPE = (
     ('Hợp đồng', 'Hợp đồng'),
     ('Trực tiếp', 'Trực tiếp')
 )
+
 
 class Basestation(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)

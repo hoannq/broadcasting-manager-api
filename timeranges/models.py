@@ -1,4 +1,5 @@
 from django.db import models
+
 from broadcastingstatus.models import Broadcastingstatus
 
 # Create your models here.
@@ -8,6 +9,7 @@ TYPES = (
     (3, 'mất sóng máy phát do nguyên nhân khác'),
     (4, 'mất sóng tín hiệu'),
 )
+
 
 class Timerange(models.Model):
     type = models.SmallIntegerField(choices=TYPES, default=TYPES[0][0])
