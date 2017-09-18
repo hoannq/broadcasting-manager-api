@@ -7,6 +7,7 @@ BROADCASTING_HOURS = (
     ('19', '19'), ('24', '24')
 )
 POWER_TYPES = (('10', '10'), ('5', '5'), ('2', '2'))
+
 RENEW = ((1, 'Thứ nhất'), (0, 'Thứ hai'))
 
 

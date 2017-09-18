@@ -6,4 +6,4 @@ from unitprices.models import Unitprice
 class UnitpriceSerializers(serializers.ModelSerializer):
     class Meta:
         model = Unitprice
-        fields = '__all__'
+        fields = ('id', 'broadcasting_hours', 'renew', 'power_type', 'price', 'machine_location',)

@@ -6,5 +6,5 @@ from machinelocations.models import Machinelocation
 class MachinelocationSerializers(serializers.ModelSerializer):
     class Meta:
         model = Machinelocation
-        fields = ('name', 'owner',)
+        fields = ('id', 'name', 'owner',)
         # read_only_fields = ('unit')
