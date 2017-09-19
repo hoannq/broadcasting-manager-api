@@ -197,8 +197,8 @@ TELEVISIONS = [
         'tax_code': '',
         'bank_account': '102010001013100',
         'bank': 'Ngân hàng TMCP Công thương Việt Nam - Chi nhánh Tô Hiệu, Hải Phòng',
-        'decision_number': '',
-        'decision_date': '',
+        'decision_number': None,
+        'decision_date': None,
         'description': ''
     },
     {
@@ -212,8 +212,8 @@ TELEVISIONS = [
         'tax_code': '',
         'bank_account': '37131044593',
         'bank': 'Kho bạc Nhà nước tỉnh Quảng Ninh',
-        'decision_number': '',
-        'decision_date': '',
+        'decision_number': None,
+        'decision_date': None,
         'description': ''
     },
     {
@@ -242,8 +242,8 @@ TELEVISIONS = [
         'tax_code': '',
         'bank_account': '37130109458700000',
         'bank': 'Kho bạc Nhà nước tỉnh Nam Định',
-        'decision_number': '',
-        'decision_date': '',
+        'decision_number': None,
+        'decision_date': None,
         'description': ''
     },
     {
@@ -257,8 +257,8 @@ TELEVISIONS = [
         'tax_code': '',
         'bank_account': '37121066908',
         'bank': 'Kho bạc Nhà nước tỉnh Hà Nam',
-        'decision_number': '',
-        'decision_date': '',
+        'decision_number': None,
+        'decision_date': None,
         'description': ''
     },
     {
@@ -602,8 +602,8 @@ TELEVISIONS = [
         'tax_code': '',
         'bank_account': '371221042820',
         'bank': 'Kho bạc Nhà nước Sóc Trăng',
-        'decision_number': '',
-        'decision_date': '',
+        'decision_number': None,
+        'decision_date': None,
         'description': ''
     },
     {
@@ -617,8 +617,8 @@ TELEVISIONS = [
         'tax_code': '',
         'bank_account': '1003546997',
         'bank': 'Ngân hàng SHB Kiên Giang',
-        'decision_number': '',
-        'decision_date': '',
+        'decision_number': None,
+        'decision_date': None,
         'description': ''
     },
     {
