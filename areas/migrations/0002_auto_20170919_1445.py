@@ -3,7 +3,26 @@
 from __future__ import unicode_literals
 
 from django.db import migrations
+from areas.models import Area
 
+AREAS = [
+    {'name': 'Tây Bắc'},
+    {'name': 'Đông Bắc'},
+    {'name': 'Đồng Bằng Sông Hồng'},
+    {'name': 'Bắc Trung Bộ'},
+    {'name': 'Nam Trung Bộ'},
+    {'name': 'Tây Nguyên'},
+    {'name': 'Đông Nam Bộ'},
+    {'name': 'Đồng Bằng Sông Cửu Long'},
+]
+
+def load_areas(apps, schema_editor):
+    for area in AREAS:
+        new_area = Area(name=area['name'])
+        new_area.save()
+
+def delete_areas(apps, schema_editor):
+    Area.objects.all().delete()
 
 class Migration(migrations.Migration):
 
@@ -12,4 +31,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(load_areas, delete_areas),
     ]
