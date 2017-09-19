@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('representative', models.CharField(max_length=50)),
                 ('position', models.CharField(max_length=20)),
                 ('address', models.TextField()),
-                ('phone_number', models.CharField(max_length=20)),
+                ('phone_number', models.CharField(max_length=20, blank=True, null=True)),
                 ('fax', models.CharField(max_length=15, blank=True, null=True)),
                 ('tax_code', models.CharField(max_length=15, blank=True, null=True)),
                 ('bank_account', models.CharField(max_length=20)),
