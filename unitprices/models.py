@@ -14,7 +14,7 @@ class Unitprice(models.Model):
     power_type = models.CharField(max_length=2, choices=POWER_TYPES, default=POWER_TYPES[1][0])
     price = models.DecimalField(max_digits=10, decimal_places=0, blank=False, null=False)
 
-    machine_location = models.OneToOneField(Machinelocation, blank=True, null=True)
+    machine_location = models.ForeignKey(Machinelocation, blank=True, null=True)
 
     class Meta:
         db_table = "unit_prices"
