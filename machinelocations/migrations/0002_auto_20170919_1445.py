@@ -3,7 +3,38 @@
 from __future__ import unicode_literals
 
 from django.db import migrations
+from machinelocations.models import Machinelocation
 
+LOCARIONS = [
+    {
+        'name': 'Địa điểm đặt máy cùng với Đài địa phương',
+        'owner': 'Đài Truyền hình Quốc gia'
+    },
+    {
+        'name': 'Địa điểm đặt máy đặc biệt khó khăn',
+        'owner': 'Đài Truyền hình Quốc gia'
+    },
+    {
+        'name': 'Cụm máy phát độc lập của Đài Truyền hình Quốc gia',
+        'owner': 'Đài Truyền hình Quốc gia'
+    },
+    {
+        'name': 'Địa điểm đặt máy bình thường',
+        'owner': 'Đài Truyền hình Địa phương'
+    },
+    {
+        'name': 'Địa điểm đặt máy đặc biệt khó khăn',
+        'owner': 'Đài Truyền hình Địa phương'
+    },
+]
+
+def load_machinelocations(apps, schema_editor):
+    for location in LOCARIONS:
+        new_location = Machinelocation(name=location['name'], owner=location['owner'])
+        new_location.save()
+
+def delete_machinelocations(apps, schema_editor):
+    Machinelocation.objects.all().delete()
 
 class Migration(migrations.Migration):
 
@@ -12,4 +43,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(load_machinelocations, delete_machinelocations),
     ]
