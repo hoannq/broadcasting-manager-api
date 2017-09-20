@@ -12,6 +12,7 @@ AREAS = (
     ('Đồng Bằng Sông Cửu Long', 'Đồng Bằng Sông Cửu Long'),
 )
 
+
 class Area(models.Model):
     name = models.CharField(max_length=50, choices=AREAS)
 

@@ -1,10 +1,12 @@
 from django.db import models
-from unitprices.models import Unitprice
+
 from broadcasts.models import Broadcast
+from unitprices.models import Unitprice
 
 # Create your models here.
-CONTRACT_TYPES = ( ('Khai thác', 'Khai thác'), ('Tiếp phát', 'Tiếp phát') )
-TAX = ( (5.00, 5.00), (10.00, 10.00) )
+CONTRACT_TYPES = (('Khai thác', 'Khai thác'), ('Tiếp phát', 'Tiếp phát'))
+TAX = ((5.00, 5.00), (10.00, 10.00))
+
 
 class Contract(models.Model):
     contract_number = models.CharField(max_length=20, blank=False, null=False)

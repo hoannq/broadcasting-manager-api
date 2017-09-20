@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+from django.utils.translation import ugettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -23,10 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0s=7fwt3n&r=_ky3q^b8)q3i^1vzk17zwxjvpm%esli62k_@r-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -38,17 +38,42 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'django_seed',
-    'areas.apps.AreasConfig',
-    'basestations.apps.BasestationsConfig',
-    'broadcastingstatus.apps.BroadcastingstatusConfig',
-    'broadcasts.apps.BroadcastsConfig',
-    'contracts.apps.ContractsConfig',
-    'machinelocations.apps.MachinelocationsConfig',
-    'televisions.apps.TelevisionsConfig',
-    'timeranges.apps.TimerangesConfig',
-    'unitprices.apps.UnitpricesConfig',
+    'one_users',
+    'one_auth',
+    'televisions',
+    'areas',
+    'basestations',
+    'broadcasts',
+    'broadcastingstatus',
+    'timeranges',
+    'contracts',
+    'machinelocations',
+    'unitprices',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost'
+)
+
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'OPTIONS'
+)
+
+CORS_ALLOW_HEADERS = (
+    'x-requested-with',
+    'content-type',
+    'accept',
+    'origin',
+    'authorization',
+    'x-csrftoken',
+    'x-token',
+)
+
+AUTH_USER_MODEL = 'one_users.OneUsers'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,11 +106,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'broadcasting_manager.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 # By default
-#
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -99,11 +123,10 @@ DATABASES = {
         'NAME': 'broadcastingmanager',
         'USER': 'homestead',
         'PASSWORD': 'secret',
-        'HOST': '127.0.0.1',
-        'PORT': '33060',
+        'HOST': '192.168.30.81',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -123,11 +146,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGES = [
+    ('en', _('English')),
+    ('vi', _('Vietnam')),
+]
+
+LANGUAGE_CODE = 'vi'
 
 TIME_ZONE = 'UTC'
 
@@ -137,8 +164,30 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.FileUploadParser',
+    ),
+    'EXCEPTION_HANDLER': 'broadcasting_manager.views.custom_exception_handler',
+    'DEFAULT_PERMISSION_CLASSES': (
+        'one_users.permissions.IsOneUserAuthenticated',
+    ),
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    'TEST_REQUEST_RENDERER_CLASSES': (
+        'rest_framework.renderers.MultiPartRenderer',
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.TemplateHTMLRenderer'
+    )
+}
