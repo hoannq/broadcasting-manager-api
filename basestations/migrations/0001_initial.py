@@ -11,8 +11,8 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('televisions', '0001_initial'),
         ('areas', '0001_initial'),
+        ('televisions', '0001_initial'),
     ]
 
     operations = [

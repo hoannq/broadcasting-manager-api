@@ -5,7 +5,7 @@ AREAS = (
     ('Tây Bắc', 'Tây Bắc'),
     ('Đông Bắc', 'Đông Bắc'),
     ('Đồng Bằng Sông Hồng', 'Đồng Bằng Sông Hồng'),
-    ('Bấc Trung Bộ', 'Bấc Trung Bộ'),
+    ('Bắc Trung Bộ', 'Bắc Trung Bộ'),
     ('Nam Trung Bộ', 'Nam Trung Bộ'),
     ('Tây Nguyên', 'Tây Nguyên'),
     ('Đông Nam Bộ', 'Đông Nam Bộ'),
