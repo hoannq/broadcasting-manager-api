@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'televisions.apps.TelevisionsConfig',
     'timeranges.apps.TimerangesConfig',
     'unitprices.apps.UnitpricesConfig',
-    'seeders.apps.SeedersConfig'
 ]
 
 MIDDLEWARE = [
