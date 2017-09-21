@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'contracts.apps.ContractsConfig',
     'machinelocations.apps.MachinelocationsConfig',
     'unitprices.apps.UnitpricesConfig',
+    'seeders.apps.SeedersConfig',
 ]
 
 CORS_ORIGIN_WHITELIST = (
