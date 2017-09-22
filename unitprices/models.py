@@ -17,8 +17,10 @@ class Unitprice(models.Model):
     power_type = models.CharField(max_length=2, choices=POWER_TYPES, default=POWER_TYPES[1][0])
     price = models.DecimalField(max_digits=10, decimal_places=0, blank=False, null=False)
 
-    is_delete = models.BigIntegerField(default=0)
     machine_location = models.ForeignKey(Machinelocation, blank=True, null=True)
+
+    deleted_at = models.BigIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = "unit_prices"

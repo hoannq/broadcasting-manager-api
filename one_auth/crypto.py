@@ -1,8 +1,8 @@
 import binascii
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
-from OpenSSL.rand import bytes as generate_bytes
 from one_auth.settings import oneauth_settings
+from os import urandom as generate_bytes
 
 sha = oneauth_settings.SECURE_HASH_ALGORITHM
 
