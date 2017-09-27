@@ -2,3 +2,6 @@ django
 djangorestframework
 mysqlclient
 django-seed
+pyopenssl==16.2.0
+requests
+django-jsonfield
