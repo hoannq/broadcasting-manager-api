@@ -13,7 +13,7 @@ from unitprices.models import Machinelocation
 
 
 class MachinelocationListView(generics.ListCreateAPIView):
-    queryset = Machinelocation.objects.filter(is_delete=0)
+    queryset = Machinelocation.objects.filter(deleted_at=0)
     serializer_class = MachinelocationSerializers
     authentication_classes = (OneTokenAuthentication,)
     permission_classes = (IsOneUserAuthenticated,)
@@ -27,7 +27,7 @@ class MachinelocationDetails(generics.mixins.RetrieveModelMixin,
                              generics.mixins.UpdateModelMixin,
                              generics.mixins.DestroyModelMixin,
                              generics.GenericAPIView):
-    queryset = Machinelocation.objects.filter(is_delete=0)
+    queryset = Machinelocation.objects.filter(deleted_at=0)
     serializer_class = MachinelocationSerializers
     authentication_classes = (OneTokenAuthentication,)
     permission_classes = (IsOneUserAuthenticated,)
@@ -41,6 +41,6 @@ class MachinelocationDetails(generics.mixins.RetrieveModelMixin,
 
     def delete(self, request, *args, **kwargs):
         instance = self.get_object()
-        instance.is_delete = int(time.mktime(datetime.datetime.now().timetuple()))
+        instance.deleted_at = int(time.mktime(datetime.datetime.now().timetuple()))
         instance.save()
         return JSONResponse({'status': 'success'}, status=status.HTTP_204_NO_CONTENT)

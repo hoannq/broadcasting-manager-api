@@ -13,7 +13,7 @@ from unitprices.serializers import UnitpriceSerializers
 
 
 class UnitpriceListView(generics.ListCreateAPIView):
-    queryset = Unitprice.objects.filter(is_delete=0)
+    queryset = Unitprice.objects.filter(deleted_at=0)
     serializer_class = UnitpriceSerializers
     authentication_classes = (OneTokenAuthentication,)
     permission_classes = (IsOneUserAuthenticated,)
@@ -24,7 +24,7 @@ class UnitpriceDetails(generics.mixins.RetrieveModelMixin,
                        generics.mixins.UpdateModelMixin,
                        generics.mixins.DestroyModelMixin,
                        generics.GenericAPIView):
-    queryset = Unitprice.objects.filter(is_delete=0)
+    queryset = Unitprice.objects.filter(deleted_at=0)
     serializer_class = UnitpriceSerializers
     authentication_classes = (OneTokenAuthentication,)
     permission_classes = (IsOneUserAuthenticated,)
@@ -38,6 +38,6 @@ class UnitpriceDetails(generics.mixins.RetrieveModelMixin,
 
     def delete(self, request, *args, **kwargs):
         instance = self.get_object()
-        instance.is_delete = int(time.mktime(datetime.datetime.now().timetuple()))
+        instance.deleted_at = int(time.mktime(datetime.datetime.now().timetuple()))
         instance.save()
         return JSONResponse({'status': 'success'}, status=status.HTTP_204_NO_CONTENT)

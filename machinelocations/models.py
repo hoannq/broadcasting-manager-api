@@ -16,7 +16,7 @@ LOCATIONS = [
 class Machinelocation(models.Model):
     name = models.CharField(max_length=100, choices=LOCATIONS)
     owner = models.CharField(max_length=100, choices=TELEVISIONS)
-    is_delete = models.BigIntegerField(default=0)
+    deleted_at = models.BigIntegerField(default=0)
 
     class Meta:
         db_table = "machine_locations"
